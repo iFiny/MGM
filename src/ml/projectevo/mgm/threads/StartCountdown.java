@@ -2,6 +2,7 @@ package ml.projectevo.mgm.threads;
 
 import ml.projectevo.mgm.GameState;
 import ml.projectevo.mgm.MGM;
+import ml.projectevo.mgm.handlers.Game;
 import ml.projectevo.mgm.utils.ChatUtilities;
 import org.bukkit.Bukkit;
 
@@ -13,7 +14,7 @@ public class StartCountdown implements Runnable {
         timeUntilStart = 20;
         while (true) {
             if (GameState.isState(GameState.IN_LOBBY))
-                if (MGM.canStart()) {
+                if (Game.canStart()) {
                 timeUntilStart = 20;
                 ChatUtilities.broadcast("Minimum players reached. Match will start.");
                 for (;timeUntilStart >= 0; timeUntilStart--) {
